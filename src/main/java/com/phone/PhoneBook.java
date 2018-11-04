@@ -24,11 +24,20 @@ public class PhoneBook {
         return new ArrayList<String>(Arrays.asList(strValues));
     }
 
-    public ArrayList<String> getPhonesAll(List<List<String>> listsOfArrayListPhone) {
+    public ArrayList<String> getPhonesAll(ArrayList<ArrayList<String>> listsOfArrayListPhone) {
         ArrayList<String> phones = listsOfArrayListPhone
                 .stream()
                 .flatMap(List::stream)
                 .collect(Collectors.toCollection(ArrayList::new));
         return phones;
+    }
+
+    public ArrayList<ArrayList<String>> getListsOfArrayListPhone(String user) {
+        ArrayList listsOfArrayListPhone = this.getPhones().entrySet()
+                .stream()
+                .filter(x -> x.getKey().equals(user))
+                .map(x -> x.getValue())
+                .collect(Collectors.toCollection(ArrayList::new));
+        return listsOfArrayListPhone;
     }
 }
