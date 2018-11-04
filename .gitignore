@@ -1,0 +1,14 @@
+### PROJECT ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.properties
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
