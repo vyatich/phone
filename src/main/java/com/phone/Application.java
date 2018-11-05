@@ -6,19 +6,22 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Application {
-    static PhoneBook phoneBook = new PhoneBook();
-    static String user;
+
+    private static PhoneBook phoneBook = new PhoneBook();
+    private static String user;
+
     public static void main(String[] args) {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Please enter second name by user");
+            System.out.println("Please enter name of user");
             user = reader.readLine();
         } catch (IOException e) {
             System.out.println("Input|output error");
         }
         writePhones();
     }
-    public static void writePhones() {
+
+    private static void writePhones() {
         ArrayList<String> resultPhones = phoneBook.getPhonesAll(phoneBook.getListsOfArrayListPhone(user));
         if (resultPhones.size() == 0) {
             System.out.println("Information not found, please, try again");
